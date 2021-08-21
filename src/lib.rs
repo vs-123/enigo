@@ -113,6 +113,17 @@ pub enum MouseButton {
 /// Representing an interface and a set of mouse functions every
 /// operating system implementation _should_ implement.
 pub trait MouseControllable {
+
+    /// Returns the current location of the cursor, active screen and window-id
+    ///
+    /// ```
+    ///  X=880
+    ///  Y=443
+    /// ```
+    /// https://www.systutorials.com/docs/linux/man/1-xdotool/#lbAF
+
+    fn mouse_location(&mut self) -> (i32, i32);
+
     /// Lets the mouse cursor move to the specified x and y coordinates.
     ///
     /// The topleft corner of your monitor screen is x=0 y=0. Move
