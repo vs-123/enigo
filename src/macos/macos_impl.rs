@@ -265,6 +265,13 @@ impl MouseControllable for Enigo {
         self.mouse_move_to(new_x, new_y);
     }
 
+    /// The mouse coordinates in points, only works on the main display
+    pub fn mouse_location() -> (i32, i32) {
+        let (x, y_inv) = Self::mouse_location_raw_coords();
+        let (_, display_height) = Self::main_display_size();
+        (x, (display_height as i32) - y_inv)
+    }
+
     fn mouse_down(&mut self, button: MouseButton) {
         let (current_x, current_y) = Self::mouse_location();
         let (button, event_type) = match button {
