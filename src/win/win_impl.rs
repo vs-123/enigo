@@ -73,15 +73,15 @@ impl MouseControllable for Enigo {
         );
     }
 
-    // fn mouse_location(&mut self) -> (i32, i32) {
-    //     let mut point = POINT { x: 0, y: 0 };
-    //     let result = unsafe { GetCursorPos(&mut point) };
-    //     if result != 0 {
-    //       (point.x, point.y)
-    //     } else {
-    //       (0, 0)
-    //     }
-    // }
+    fn mouse_location(&mut self) -> (i32, i32) {
+        let mut point = POINT { x: 0, y: 0 };
+        let result = unsafe { GetCursorPos(&mut point) };
+        if result != 0 {
+          (point.x, point.y)
+        } else {
+          (0, 0)
+        }
+    }
 
     fn mouse_up(&mut self, button: MouseButton) {
         mouse_event(
@@ -180,15 +180,15 @@ impl Enigo {
     /// use enigo::*;
     /// let mut location = Enigo::mouse_location();
     /// ```
-    pub fn mouse_location() -> (i32, i32) {
-        let mut point = POINT { x: 0, y: 0 };
-        let result = unsafe { GetCursorPos(&mut point) };
-        if result != 0 {
-          (point.x, point.y)
-        } else {
-          (0, 0)
-        }
-    }
+    // pub fn mouse_location() -> (i32, i32) {
+    //     let mut point = POINT { x: 0, y: 0 };
+    //     let result = unsafe { GetCursorPos(&mut point) };
+    //     if result != 0 {
+    //       (point.x, point.y)
+    //     } else {
+    //       (0, 0)
+    //     }
+    // }
 
     fn unicode_key_click(&self, unicode_char: u16) {
         use std::{thread, time};
