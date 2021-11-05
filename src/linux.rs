@@ -105,21 +105,21 @@ impl Drop for Enigo {
     }
 }
 impl MouseControllable for Enigo {
-    fn mouse_location(&mut self) -> (i32, i32) {
-        let mut x: i32 = 0;
-        let mut y: i32 = 0;
-        let mut screen: i32 = 0;
-        let mut window: i32 = 0;
-        unsafe {
-            xdo_get_mouse_location2(
-                self.xdo,
-                &x as &c_int,
-                &y as &c_int,
-                &screen as &c_int,
-                &window as &c_int);
-        }
-        return (x, y)
-    }
+    // fn mouse_location(&mut self) -> (i32, i32) {
+    //     let mut x: i32 = 0;
+    //     let mut y: i32 = 0;
+    //     let mut screen: i32 = 0;
+    //     let mut window: i32 = 0;
+    //     unsafe {
+    //         xdo_get_mouse_location2(
+    //             self.xdo,
+    //             &x as &c_int,
+    //             &y as &c_int,
+    //             &screen as &c_int,
+    //             &window as &c_int);
+    //     }
+    //     return (x, y)
+    // }
     fn mouse_move_to(&mut self, x: i32, y: i32) {
         unsafe {
             xdo_move_mouse(self.xdo, x as c_int, y as c_int, 0);
