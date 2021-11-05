@@ -182,8 +182,9 @@ impl MouseControllable for Enigo {
         }
     }
 }
+
 impl Enigo {
-    pub fn mouse_location(&mut self) -> (i32, i32) {
+    pub fn mouse_location() -> (i32, i32) {
         let mut x: i32 = 0;
         let mut y: i32 = 0;
         let mut screen: i32 = 0;
@@ -199,6 +200,7 @@ impl Enigo {
         return (x, y)
     }
 }
+
 fn keysequence<'a>(key: Key) -> Cow<'a, str> {
     if let Key::Layout(c) = key {
         return Cow::Owned(format!("U{:X}", c as u32));
