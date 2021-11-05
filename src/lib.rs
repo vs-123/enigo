@@ -122,7 +122,7 @@ pub trait MouseControllable {
     /// ```
     /// https://www.systutorials.com/docs/linux/man/1-xdotool/#lbAF
 
-    // fn mouse_location(&mut self) -> (i32, i32);
+    fn mouse_location(&mut self) -> (i32, i32);
 
     /// Lets the mouse cursor move to the specified x and y coordinates.
     ///
