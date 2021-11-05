@@ -183,7 +183,7 @@ impl MouseControllable for Enigo {
     }
 }
 impl Enigo {
-    fn mouse_location(&mut self) -> (i32, i32) {
+    pub fn mouse_location(&mut self) -> (i32, i32) {
         let mut x: i32 = 0;
         let mut y: i32 = 0;
         let mut screen: i32 = 0;
